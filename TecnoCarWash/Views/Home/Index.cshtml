@@ -1,0 +1,43 @@
+﻿@model Empleado
+
+@{
+    ViewData["Title"] = "Empleados";
+
+    string ConvertirEnMayusculas(string valor)
+    {
+        return valor.ToUpper() + " - Mayus";
+    }
+
+    DateTime hoy = DateTime.Now;
+    var nombres = new List<string>()
+    {
+        "Choco", "Pepe", "Perez"
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Soy @ConvertirEnMayusculas(Model.Nombre)</h1>
+
+    <ul>
+        @foreach (var nombre in nombres)
+            {
+                <li>@nombre</li>
+            }
+    </ul>
+
+
+    <h3>@hoy.ToString("dd MMMM yyyy hh:mm:ss tt")</h3>
+
+    @if(Model.Edad > 50)
+        {
+            <h4>Eres mayor <button>Entrar</button></h4>
+        }
+        else
+        {
+            <h3>Eres menor, vamonos....</h3>
+        }
+
+    <h2>Mi edad es @Model.Edad</h2>
+    <img style="" src="~/imagenes/trabajador1.png" alt="trabajador" />
+</div>
+
