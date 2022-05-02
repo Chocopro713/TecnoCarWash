@@ -1,0 +1,32 @@
+﻿@model HomeHistorialViewModel
+
+@{
+    ViewData["Title"] = "Historial";
+}
+
+@if(Model.Historials is not null)
+{
+    <div class="text-center">
+        <h1 class="display-4">Tabla de Empleados</h1>
+
+        <table>
+            <tr>
+                <th>Empleado</th>
+                <th>Vehiculo</th>
+                <th>Dia</th>
+                <th>Hora</th>
+                <th>Valor</th>
+            </tr>
+            @foreach (var historial in Model.Historials)
+                {
+            <tr>
+                <td><i class="bi bi-person"></i> @historial.Empleado.Nombre</td>
+                <td>@historial.Vehiculo</td>
+                <td>@historial.Dia</td>
+                <td>@historial.Hora</td>
+                <td>@historial.Valor</td>
+            </tr>
+                }
+        </table>
+    </div>
+}

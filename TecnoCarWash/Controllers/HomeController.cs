@@ -15,18 +15,61 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var empleado = new Empleado()
-        {
-            Id = 1,
-            Edad = 52,
-            Nombre = "Choco Poderoso"
-        };
-        return View(empleado);
+        return View();
     }
 
-    public IActionResult Privacy()
+    public List<Historial> ObtenerHistorial()
     {
-        return View();
+        return new List<Historial>()
+        {
+            new Historial()
+            {
+                Empleado = new Empleado()
+                {
+                    Id=1,
+                    Edad = 20,
+                    Nombre = "Fulano"
+                },
+                Dia = DateTime.Now,
+                Hora = DateTime.Now,
+                Valor = 10000,
+                Vehiculo = "Maxda"
+            },
+            new Historial()
+            {
+                Empleado = new Empleado()
+                {
+                    Id=1,
+                    Edad = 20,
+                    Nombre = "Fulano"
+                },
+                Dia = DateTime.Now,
+                Hora = DateTime.Now,
+                Valor = 10000,
+                Vehiculo = "Maxda"
+            },
+            new Historial()
+            {
+                Empleado = new Empleado()
+                {
+                    Id=1,
+                    Edad = 20,
+                    Nombre = "Fulano"
+                },
+                Dia = DateTime.Now,
+                Hora = DateTime.Now,
+                Valor = 10000,
+                Vehiculo = "Maxda"
+            }
+        };
+    }
+    public IActionResult Historial()
+    {
+        var modelo = new HomeHistorialViewModel()
+        {
+            Historials = this.ObtenerHistorial()
+        };
+        return View(modelo);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -9,35 +9,62 @@
     }
 
     DateTime hoy = DateTime.Now;
-    var nombres = new List<string>()
+    var empleados = new List<Empleado>()
     {
-        "Choco", "Pepe", "Perez"
+        new Empleado()
+        {
+            Id = 1,
+            Nombre = "Pepito Perez",
+            Edad = 30,
+        },
+        new Empleado()
+        {
+            Id = 2,
+            Nombre = "Pepito Rancion",
+            Edad = 40,
+        },
+        new Empleado()
+        {
+            Id = 3,
+            Nombre = "Rancion Perez",
+            Edad = 50,
+        },
     };
 }
 
 <div class="text-center">
-    <h1 class="display-4">Soy @ConvertirEnMayusculas(Model.Nombre)</h1>
+    <h1 class="display-4">Tabla de Empleados</h1>
 
-    <ul>
-        @foreach (var nombre in nombres)
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+        </tr>
+        @foreach (var empleado in empleados)
             {
-                <li>@nombre</li>
+        <tr>
+            <td><i class="bi bi-person"></i> @empleado.Id</td>
+            <td>@empleado.Nombre</td>
+            <td>@empleado.Edad</td>
+        </tr>
             }
-    </ul>
-
-
-    <h3>@hoy.ToString("dd MMMM yyyy hh:mm:ss tt")</h3>
-
-    @if(Model.Edad > 50)
-        {
-            <h4>Eres mayor <button>Entrar</button></h4>
-        }
-        else
-        {
-            <h3>Eres menor, vamonos....</h3>
-        }
-
-    <h2>Mi edad es @Model.Edad</h2>
-    <img style="" src="~/imagenes/trabajador1.png" alt="trabajador" />
+    </table>
+    
+    <br />
+    <br />
+    <br />
+    <table>
+        <tr>
+            <th>Placa</th>
+            <th>Valor</th>
+            <th>Empleado</th>
+        </tr>
+        <tr>
+            <td><i class="bi bi-cart"> <input name=placa/> </i></td>
+            <td> <input name=valor/> </td>
+            <td> <input name=empleado/> </td>
+        </tr>
+    </table>
 </div>
 
